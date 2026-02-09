@@ -5,10 +5,6 @@ description: >
   code changes for review. Triggers on tasks like "prepare my PR", "write a
   commit message", "summarize my changes", "generate PR description", or
   before pushing a feature branch.
-license: MIT
-metadata:
-  author: russdias
-  version: "1.0.0"
 ---
 
 # PR Prep
