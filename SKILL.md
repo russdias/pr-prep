@@ -28,17 +28,27 @@ Do NOT use when:
 1. **Gather context** — determine the base branch (usually `main`) and run:
    - `git diff <base>...HEAD` to see all changes on the branch
    - `git diff --stat <base>...HEAD` for a summary of files changed
-   - `git log --oneline <base>..HEAD` for commit history
+   - `git log --oneline <base>..HEAD` for commit history on this branch
    - `git diff` and `git diff --cached` for any uncommitted work
+   - `git log --oneline -20 <base>` to see recent commit messages on the base branch
    - Read changed files when the diff alone isn't enough to understand intent
 
-2. **Analyze the changes** — pay attention to:
+2. **Match the repo's conventions** — before generating anything, study the
+   recent commit history from step 1. Look for patterns:
+   - Do they use conventional commits (`feat:`, `fix:`)? Scoped (`feat(api):`)? Plain English?
+   - Sentence case or lowercase? Imperative or past tense?
+   - Are there PR templates in `.github/PULL_REQUEST_TEMPLATE.md`?
+   - Match whatever style the team already uses. If no clear pattern exists,
+     fall back to the templates below.
+
+3. **Analyze the changes** — pay attention to:
    - Which files were added, modified, or deleted
    - The diff stat (lines added/removed per file)
    - Existing commit messages on the branch
    - The semantic *purpose* of the changes (bug fix, feature, refactor, docs, etc.)
 
-3. **Generate suggestions** using the templates below.
+4. **Generate suggestions** using the repo's conventions if found, otherwise
+   the templates below.
 
 ## Output Templates
 
