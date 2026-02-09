@@ -25,7 +25,15 @@ Do NOT use when:
 
 ## Workflow
 
-1. **Gather context** — determine the base branch (usually `main`) and run:
+1. **Check the current branch** — run `git rev-parse --abbrev-ref HEAD`.
+   If the user is on the default branch (`main`, `master`, etc.) and has
+   uncommitted changes, suggest an appropriate branch name before proceeding:
+   - Format: `<type>/<short-description>` (e.g. `feat/add-rate-limiting`,
+     `fix/login-redirect-loop`)
+   - Derive the name from the changes, not generic placeholders
+   - Ask the user to create the branch before continuing
+
+2. **Gather context** — determine the base branch (usually `main`) and run:
    - `git diff <base>...HEAD` to see all changes on the branch
    - `git diff --stat <base>...HEAD` for a summary of files changed
    - `git log --oneline <base>..HEAD` for commit history on this branch
